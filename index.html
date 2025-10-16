@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="レイヤー機能、元に戻す機能、シーン別背景を備えたお絵描きWebアプリ">
+    <title>🎨 お絵描きアプリ</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 お絵描きアプリ</h1>
+        
+        <div class="toolbar">
+            <div class="tool-group">
+                <label>ペンの太さ:</label>
+                <input type="range" id="brushSize" min="1" max="50" value="5">
+                <span id="brushSizeValue">5</span>px
+            </div>
+            
+            <div class="tool-group">
+                <label>色:</label>
+                <input type="color" id="colorPicker" value="#000000">
+            </div>
+            
+            <div class="tool-group">
+                <label>背景:</label>
+                <select id="backgroundSelect" class="bg-select">
+                    <option value="white">白</option>
+                    <option value="city">🏙️ 都会の夕暮れ</option>
+                    <option value="forest">🌲 森の中</option>
+                    <option value="ocean">🌊 海辺</option>
+                    <option value="sunset">🌅 夕焼け空</option>
+                    <option value="night">🌃 夜空</option>
+                    <option value="spring">🌸 春の桜</option>
+                    <option value="autumn">🍁 秋の紅葉</option>
+                    <option value="snow">❄️ 雪景色</option>
+                    <option value="grid">📐 グリッド</option>
+                </select>
+            </div>
+            
+            <div class="tool-group">
+                <button id="eraserBtn" class="tool-btn">消しゴム</button>
+                <button id="penBtn" class="tool-btn active">ペン</button>
+            </div>
+            
+            <div class="tool-group">
+                <button id="undoBtn" class="tool-btn">↶ 元に戻す</button>
+                <button id="redoBtn" class="tool-btn">↷ やり直し</button>
+            </div>
+            
+            <div class="tool-group">
+                <button id="clearBtn" class="tool-btn danger">全消去</button>
+                <button id="saveBtn" class="tool-btn success">保存</button>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="layer-panel">
+                <h3>🎨 レイヤー</h3>
+                <div class="layer-controls">
+                    <button id="addLayerBtn" class="layer-btn">➕ 追加</button>
+                    <button id="deleteLayerBtn" class="layer-btn danger">🗑️ 削除</button>
+                </div>
+                <div id="layerList" class="layer-list"></div>
+            </div>
+            
+            <div class="canvas-container">
+                <div id="canvasStack" class="canvas-stack"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
